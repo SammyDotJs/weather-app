@@ -1,19 +1,29 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { useEffect, useState } from 'react';
 
 import axios from 'axios';
 import FetchCities from './FetchCities';
+import FetchContext from './context/fetch-context';
 
 const FetchWeather = () => {
   const [data, setData] = useState([]);
   const [coords, setCoords] = useState(null);
 
-  const getLocationHandler = (val) => {
-    console.log(val)
-  }; 
+  const { location } = useContext(FetchContext);
+  console.log(location);
 
   useEffect(() => {
-    if (coords) { 
+    if (location) {
+      const locationObject = {
+        latitude: location[0],
+        longitude: location[1],
+      };
+      setCoords(locationObject);
+    }
+  }, [location]);
+
+  useEffect(() => {
+    if (coords) {
       const fetchApi = async () => {
         const { latitude, longitude } = coords;
         const APIkey = 'f6c1565407545e1c01bfb46d37e00141';
@@ -29,9 +39,10 @@ const FetchWeather = () => {
       fetchApi();
     }
   }, [coords]);
+  console.log(data)
   return (
     <div>
-      <FetchCities getLatLong={getLocationHandler} />
+      <FetchCities />
     </div>
   );
 };

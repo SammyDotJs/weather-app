@@ -1,14 +1,15 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import FetchContext from './fetch-context';
 
-const FetchContextProvider = ({children}) => {
+const FetchContextProvider = ({ children }) => {
+  const [loc, setLoc] = useState(null)
 
   const setLangLong = (val) => {
-    console.log(val)
+    setLoc(val)
   }
 
   const fetchContext = {
-    location: [],
+    location: loc,
     setLocation: setLangLong
   };
 

@@ -7,9 +7,9 @@ const FetchCities = (props) => {
   const [city, setCity] = useState([]);
   const [isOpen, setIsOpen] = useState(false);
 
-  const {setLocation} = useContext(FetchContext)
+  const { setLocation } = useContext(FetchContext);
 
-  const country = 'nigeria';
+  const country = 'london';
   useEffect(() => {
     const fetchCity = async () => {
       try {
@@ -24,21 +24,21 @@ const FetchCities = (props) => {
     };
     fetchCity();
   }, []);
-  console.log(city);
-  let latLon = []
-   
-  const latlng = city[0].latlng
-  if (city.length > 0) {
-    const lat = latlng[0];
-    const lon = latlng[1];
-    latLon.push(lat)
-    console.log(latLon)
-  }
+  useEffect(() => {
+    if (city.length > 0) {
+      const coords = city[0].latlng;
+      if (coords.length > 0) {
+        const lat = coords[0];
+        const lon = coords[1];
+        setLocation(coords);
+      }
+    }
+  }, [city, setLocation]);
   return (
     isOpen && (
       <div>
-        <p>lat: {latlng[0]}</p>
-        <p>lon: {latlng[1]}</p>
+        {/* <p>lat: {latlng[0]}</p>
+        <p>lon: {latlng[1]}</p> */}
       </div>
     )
   );

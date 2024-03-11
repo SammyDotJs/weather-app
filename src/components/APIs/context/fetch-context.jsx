@@ -2,7 +2,7 @@ import React from 'react';
 
 const FetchContext = React.createContext({
   location: [],
-  setLocation:()=>{},
+  setLocation:(val)=>{},
 });
 
 export default FetchContext;

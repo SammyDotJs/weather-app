@@ -59,7 +59,8 @@ function App() {
   //     fetchApi();
   //   }
   // }, [coords]);
-// console.log(data)
+  // console.log(data)
+  
   return (
     <FetchContextProvider>
       <FetchWeather/>
