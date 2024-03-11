@@ -4,11 +4,13 @@ import viteLogo from '/vite.svg';
 import axios from 'axios';
 import './App.css';
 import FetchCities from './components/APIs/FetchCities';
+import FetchWeather from './components/APIs/FetchWeather';
+import FetchContextProvider from './components/APIs/context/FetchContextProvider';
 
 function App() {
   const [count, setCount] = useState(0);
-  const [data, setData] = useState([]);
-  const [coords, setCoords] = useState(null);
+  // const [data, setData] = useState([]);
+  // const [coords, setCoords] = useState(null);
   // const [city,setCity]=useState([])
 
   const errorCallback = (error) => {
@@ -17,7 +19,7 @@ function App() {
 
   const successCallback = (position) => {
     const { latitude, longitude } = position.coords;
-    setCoords({ latitude, longitude });
+    // setCoords({ latitude, longitude });
   };
 
 //   const country = 'nigeria'
@@ -40,27 +42,27 @@ function App() {
     fetchLocation();
   }, []);
 
-  useEffect(() => {
-    if (coords) {
-      const fetchApi = async () => {
-        const { latitude, longitude } = coords;
-          const APIkey = 'f6c1565407545e1c01bfb46d37e00141';
-          try {
-            const res = await axios.get(
-              `https://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&appid=${APIkey}`,
-            );
-            setData(res.data);
-          } catch (error) {
-            console.error('Error fetching weather data:', error);
-          }
-      };
-      fetchApi();
-    }
-  }, [coords]);
-console.log(data)
+  // useEffect(() => {
+  //   if (coords) {
+  //     const fetchApi = async () => {
+  //       const { latitude, longitude } = coords;
+  //         const APIkey = 'f6c1565407545e1c01bfb46d37e00141';
+  //         try {
+  //           const res = await axios.get(
+  //             `https://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&appid=${APIkey}`,
+  //           );
+  //           setData(res.data);
+  //         } catch (error) {
+  //           console.error('Error fetching weather data:', error);
+  //         }
+  //     };
+  //     fetchApi();
+  //   }
+  // }, [coords]);
+// console.log(data)
   return (
-    <>
-      <FetchCities/>
+    <FetchContextProvider>
+      <FetchWeather/>
       <div>
         <a href="https://vitejs.dev" target="_blank">
           <img src={viteLogo} className="logo" alt="Vite logo" />
@@ -81,7 +83,7 @@ console.log(data)
       <p className="read-the-docs">
         Click on the Vite and React logos to learn more
       </p>
-    </>
+    </FetchContextProvider>
   );
 }
 
