@@ -1,3 +1,63 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+main {
+  background: #222222;
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+section {
+  background: #474747;
+  width: 90%;
+  height: 90vh;
+  border-radius: 3rem;
+  background: #222222;
+  box-shadow: 8px 8px 16px rgba(21, 21, 21, 0.8156862745), -8px -8px 16px rgba(21, 21, 21, 0.8156862745);
+}
+
+.row {
+  width: 100%;
+  display: flex;
+}
+
+.col {
+  display: flex;
+  flex-direction: column;
+}
+
+.row {
+  max-width: 100%;
+  display: flex;
+  flex-direction: row;
+}
+.row .left-column {
+  width: 40%;
+  background-color: #222222;
+  color: white;
+  display: flex;
+  flex-direction: column;
+}
+.row .right-column {
+  width: 60%;
+}
+
+.search {
+  background: #474747;
+  height: 2rem;
+  border: transparent;
+  outline: none;
+  border-radius: 3rem;
+  background: #222222;
+  box-shadow: 6px 6px 12px rgba(21, 21, 21, 0.8156862745), -6px -6px 12px rgba(21, 21, 21, 0.8156862745);
+}
+
 .content {
   position: absolute;
   top: 50%;
@@ -9,8 +69,6 @@
 
 div[class] {
   display: inline-block;
-  width: 150px;
-  color: red;
   margin: 20px;
   filter: url(#round);
 }

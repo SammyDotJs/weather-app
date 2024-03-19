@@ -2,6 +2,8 @@ import React, { useEffect } from 'react';
 import axios from 'axios';
 import FetchWeather from './components/APIs/FetchWeather';
 import FetchContextProvider from './components/APIs/context/FetchContextProvider';
+import LeftColumn from './components/UI/DisplayFlex/LeftColumn';
+import RightColumn from './components/UI/DisplayFlex/RightColumn';
 
 function App() {
   const lat = 10;
@@ -40,6 +42,14 @@ function App() {
   return (
     <FetchContextProvider>
       <FetchWeather />
+      <main>
+        <section>
+          <div className="row">
+            <LeftColumn />
+            <RightColumn/>
+          </div>
+        </section>
+      </main>
     </FetchContextProvider>
 
   );

@@ -9,7 +9,7 @@ const FetchWeather = () => {
   const [data, setData] = useState([]);
   const [coords, setCoords] = useState(null);
 
-  const { location } = useContext(FetchContext);
+  const { location , weatherData } = useContext(FetchContext);
 
   useEffect(() => {
     if (location) {
@@ -34,7 +34,8 @@ const FetchWeather = () => {
       fetchApi();
     }
   }, [coords]);
-  console.log(data)
+  // console.log(data)
+  weatherData(data)
   return (
     <div>
       <FetchCities />

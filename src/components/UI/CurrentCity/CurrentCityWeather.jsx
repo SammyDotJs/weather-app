@@ -1,9 +1,18 @@
-import React from 'react'
+import React, { useContext } from 'react';
+import FetchContext from '../../APIs/context/fetch-context';
+import { Polygon } from '../../../shapes/IrregularShapes';
 
 const CurrentCityWeather = () => {
-  return (
-    <div>CurrentCityWeather</div>
-  )
-}
+  const { data } = useContext(FetchContext);
+  console.log(data);
 
-export default CurrentCityWeather
+  return (
+    <div>
+      {/* <Polygon>
+        <p>South Korea</p>
+      </Polygon> */}
+    </div>
+  );
+};
+
+export default CurrentCityWeather;

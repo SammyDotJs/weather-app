@@ -1,4 +1,4 @@
-import React from 'react'
+import React from 'react';
 
 const SvgFilter = () => {
   return (
@@ -11,7 +11,7 @@ const SvgFilter = () => {
     >
       <defs>
         <filter id="round">
-          <feGaussianBlur in="SourceGraphic" stdDeviation="8" result="blur" />
+          <feGaussianBlur in="SourceGraphic" stdDeviation="19" result="blur" />
           <feColorMatrix
             in="blur"
             mode="matrix"
@@ -23,6 +23,6 @@ const SvgFilter = () => {
       </defs>
     </svg>
   );
-}
+};
 
-export default SvgFilter
+export default SvgFilter;

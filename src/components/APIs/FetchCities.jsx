@@ -9,7 +9,7 @@ const FetchCities = (props) => {
 
   const { setLocation } = useContext(FetchContext);
 
-  const city = 'miami';
+  const city = 'lagos';
     const options = {
       method: 'GET',
       url: `https://api.api-ninjas.com/v1/city?name=${city}`,
