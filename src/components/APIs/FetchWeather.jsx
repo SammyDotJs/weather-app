@@ -10,15 +10,10 @@ const FetchWeather = () => {
   const [coords, setCoords] = useState(null);
 
   const { location } = useContext(FetchContext);
-  console.log(location);
 
   useEffect(() => {
     if (location) {
-      const locationObject = {
-        latitude: location[0],
-        longitude: location[1],
-      };
-      setCoords(locationObject);
+      setCoords(location[0]);
     }
   }, [location]);
 
